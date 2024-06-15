@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const sequelize = require('./src/config/db');
 const createDefaultData = require('./src/utils/createDefaultData');
+const cors = require('cors'); // Importar el middleware cors
 
 // Load environment variables from .env file
 dotenv.config();
@@ -25,6 +26,7 @@ const MessengerClient = require('./src/models/MessengerClient');
 
 // Initialize Express app
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 // Use routes
